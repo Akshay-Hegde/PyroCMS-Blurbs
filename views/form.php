@@ -1,4 +1,4 @@
-<ul class="blurbs" id="<?php echo $formSlug ?>">
+<ul class="blurbs-field-type" id="<?php echo $formSlug ?>">
     <?php if (isset($items)): ?>
         <?php foreach ($items as $i => &$item): ?>
             <li>
@@ -13,6 +13,13 @@
                         <textarea name="<?php echo $formSlug ?>[<?php echo $i ?>][body]" placeholder="Body"><?php if (isset($item['body'])) echo $item['body'] ?></textarea>
                     </li>
                 </ul>
+                <div class="blurbs-move-up">
+                    <a href="#">Move up</a>
+                </div>
+                <div class="blurbs-move-up">
+                    <a href="#">Move down</a>
+                </div>
+                /
                 <div class="blurbs-remove">
                     <a href="#">Remove</a>
                 </div>
@@ -31,6 +38,13 @@
                     <textarea name="<?php echo $formSlug ?>[<?php echo $i ?>][body]" placeholder="Body"></textarea>
                 </li>
             </ul>
+            <div class="blurbs-move-up">
+                <a href="#">Move up</a>
+            </div>
+            <div class="blurbs-move-up">
+                <a href="#">Move down</a>
+            </div>
+            /
             <div class="blurbs-remove">
                 <a href="#">Remove</a>
             </div>
