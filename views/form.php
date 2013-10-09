@@ -13,13 +13,9 @@
                         <textarea name="<?php echo $formSlug ?>[<?php echo $i ?>][body]" placeholder="Body"><?php if (isset($item['body'])) echo $item['body'] ?></textarea>
                     </li>
                 </ul>
-                <div class="blurbs-move-up">
-                    <a href="#">Move up</a>
+                <div class="blurbs-move">
+                    <a href="#" class="blurbs-move-up">Move up</a> / <a href="#" class="blurbs-move-down">Move down</a>
                 </div>
-                <div class="blurbs-move-up">
-                    <a href="#">Move down</a>
-                </div>
-                /
                 <div class="blurbs-remove">
                     <a href="#">Remove</a>
                 </div>
@@ -38,13 +34,9 @@
                     <textarea name="<?php echo $formSlug ?>[<?php echo $i ?>][body]" placeholder="Body"></textarea>
                 </li>
             </ul>
-            <div class="blurbs-move-up">
-                <a href="#">Move up</a>
+            <div class="blurbs-move">
+                <a href="#" class="blurbs-move-up">Move up</a> / <a href="#" class="blurbs-move-down">Move down</a>
             </div>
-            <div class="blurbs-move-up">
-                <a href="#">Move down</a>
-            </div>
-            /
             <div class="blurbs-remove">
                 <a href="#">Remove</a>
             </div>
