@@ -20,6 +20,13 @@ class Field_blurbs
         'url' => 'http://adamboxall.com'
     );
 
+    public function event()
+    {
+        $ci = get_instance();
+
+        $ci->type->add_js('blurbs', 'entry.js');
+    }
+
     public function form_output($data)
     {
         return (!$data['value'])
