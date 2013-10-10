@@ -4,54 +4,59 @@
 
         blurbsFieldType: function() {
 
-            var container = this;
-            var inputFindSelector = '[name^=' + container.attr('id') + ']';
+            var blurbs = this;
+            var inputSelector = '[name^=' + blurbs.attr('id') + ']';
 
             function addItem() {
+                $(this).parents('.blurb').after($('#blurb-template').html());
+                resetIndexes();
+            }
+
+            function removeItem() {
+                $(this).parents('.blurb').remove();
+                resetIndexes();
+            }
+
+            function moveItemUp() {
                 var blurb = $(this).parents('.blurb');
-                var index = parseInt(blurb.data('index')) + 1;
-                increaseNextIndexes(blurb);
-                blurb.after($('#blurb-template').html().replace(/:index/g, index));
-                return false;
+                var previous = blurb.prev();
+                if (previous.length) {
+                    previous.before(blurb.detach());
+                    resetIndexes();
+                }
             }
 
-            function removeItem(root) {
+            function moveItemDown() {
                 var blurb = $(this).parents('.blurb');
-                decreaseNextIndexes(blurb);
-                blurb.remove();
-                return false;
+                var next = blurb.next();
+                if (next.length) {
+                    next.after(blurb.detach());
+                    resetIndexes();
+                }
             }
 
-            function increaseNextIndexes(blurb) {
-                var index = blurb.data('index') + 2;
-                blurb.nextAll().each(function() {
-                    updateIndex($(this), index++);
-                });
-            }
-
-            function decreaseNextIndexes(blurb) {
-                var index = blurb.data('index') + 1;
-                blurb.nextAll().each(function() {
-                    updateIndex($(this), index++);
-                });
-            }
-
-            function updateIndex(blurb, index) {
-                //blurb.data('index', index);
-                // TODO: work out why only native works!
-                blurb[0].setAttribute('data-index', index);
-                blurb.find(inputFindSelector).each(function() {
-                    var field = $(this);
-                    field.attr('name', field.attr('name').replace(
-                        /\[[0-9]+\]\[(title|link|body)\]/g, '[' + index + '][$1]'
-                    ));
+            function resetIndexes() {
+                var index = 0;
+                blurbs.find('.blurb').each(function() {
+                    var blurb = $(this);
+                    // TODO: find out why only native works
+                    // blurb.data('index', index);
+                    this.setAttribute('data-index', index);
+                    blurb.find(inputSelector).each(function() {
+                        var field = $(this);
+                        field.attr('name', field.attr('name').replace(
+                            /\[[0-9]+\]\[(title|link|body)\]/g, '[' + index + '][$1]'
+                        ));
+                    });
+                    index++;
                 });
             }
 
             return this.each(function() {
-                var blurb = $(this);
-                blurb.on('click', '.blurb-add', addItem);
-                blurb.on('click', '.blurb-remove', removeItem);
+                blurbs.on('click', '.blurb-add', addItem);
+                blurbs.on('click', '.blurb-remove', removeItem);
+                blurbs.on('click', '.blurb-moveup', moveItemUp);
+                blurbs.on('click', '.blurb-movedown', moveItemDown);
             });
         }
 

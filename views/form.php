@@ -14,10 +14,10 @@
                     </li>
                 </ul>
                 <div class="buttons">
-                    <button type="button" class="btn small gray">
+                    <button type="button" class="btn small gray blurb-moveup">
                         <span class="icon-arrow-up"></span>
                     </button>
-                    <button type="button" class="btn small gray">
+                    <button type="button" class="btn small gray blurb-movedown">
                         <span class="icon-arrow-down"></span>
                     </button>
                     <button type="button" class="btn small gray blurb-remove">
@@ -43,10 +43,10 @@
                 </li>
             </ul>
             <div class="buttons">
-                <button type="button" class="btn small gray">
+                <button type="button" class="btn small gray blurb-moveup">
                     <span class="icon-arrow-up"></span>
                 </button>
-                <button type="button" class="btn small gray">
+                <button type="button" class="btn small gray blurb-movedown">
                     <span class="icon-arrow-down"></span>
                 </button>
                 <button type="button" class="btn small gray blurb-remove">
@@ -61,23 +61,23 @@
 </ul>
 
 <script type="text/template" id="blurb-template">
-    <li class="blurb" data-index=":index">
+    <li class="blurb" data-index="0">
         <ul class="blurb-inputs">
             <li class="input">
-                <input type="text" name="<?php echo $formSlug ?>[:index][title]" placeholder="Title">
+                <input type="text" name="<?php echo $formSlug ?>[0][title]" placeholder="Title">
             </li>
             <li class="input">
-                <input type="text" name="<?php echo $formSlug ?>[:index][link]" placeholder="Link">
+                <input type="text" name="<?php echo $formSlug ?>[0][link]" placeholder="Link">
             </li>
             <li class="input">
-                <textarea name="<?php echo $formSlug ?>[:index][body]" placeholder="Body"></textarea>
+                <textarea name="<?php echo $formSlug ?>[0][body]" placeholder="Body"></textarea>
             </li>
         </ul>
         <div class="buttons">
-            <button type="button" class="btn small gray">
+            <button type="button" class="btn small gray blurb-moveup">
                 <span class="icon-arrow-up"></span>
             </button>
-            <button type="button" class="btn small gray">
+            <button type="button" class="btn small gray blurb-movedown">
                 <span class="icon-arrow-down"></span>
             </button>
             <button type="button" class="btn small gray blurb-remove">
