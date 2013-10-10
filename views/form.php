@@ -1,4 +1,4 @@
-<ul class="blurbs">
+<ul class="blurbs" id="<?php echo $formSlug ?>">
     <?php if (isset($items)): ?>
         <?php foreach ($items as $i => &$item): ?>
             <li class="blurb" data-index="<?php echo $i ?>">
@@ -13,12 +13,20 @@
                         <textarea name="<?php echo $formSlug ?>[<?php echo $i ?>][body]" placeholder="Body"><?php if (isset($item['body'])) echo htmlspecialchars($item['body']) ?></textarea>
                     </li>
                 </ul>
-                <ul class="blurb-control">
-                    <li><a href="#" class="blurb-moveup">Move up</a></li>
-                    <li><a href="#" class="blurb-movedown">Move down</a></li>
-                    <li><a href="#" class="blurb-remove">Delete</a></li>
-                    <li><a href="#" class="blurb-add">Add</a></li>
-                </ul>
+                <div class="buttons">
+                    <button type="button" class="btn small gray">
+                        <span class="icon-arrow-up"></span>
+                    </button>
+                    <button type="button" class="btn small gray">
+                        <span class="icon-arrow-down"></span>
+                    </button>
+                    <button type="button" class="btn small gray blurb-remove">
+                        <span class="icon-remove"></span>
+                    </button>
+                    <button type="button" class="btn small gray blurb-add">
+                        <span class="icon-plus"></span>
+                    </button>
+                </div>
             </li>
         <?php endforeach ?>
     <?php else: ?>
@@ -34,12 +42,20 @@
                     <textarea name="<?php echo $formSlug ?>[0][body]" placeholder="Body"></textarea>
                 </li>
             </ul>
-            <ul class="blurb-control">
-                <li><a href="#" class="blurb-moveup">Move up</a></li>
-                <li><a href="#" class="blurb-movedown">Move down</a></li>
-                <li><a href="#" class="blurb-remove">Delete</a></li>
-                <li><a href="#" class="blurb-add">Add</a></li>
-            </ul>
+            <div class="buttons">
+                <button type="button" class="btn small gray">
+                    <span class="icon-arrow-up"></span>
+                </button>
+                <button type="button" class="btn small gray">
+                    <span class="icon-arrow-down"></span>
+                </button>
+                <button type="button" class="btn small gray blurb-remove">
+                    <span class="icon-remove"></span>
+                </button>
+                <button type="button" class="btn small gray blurb-add">
+                    <span class="icon-plus"></span>
+                </button>
+            </div>
         </li>
     <?php endif ?>
 </ul>
@@ -57,11 +73,19 @@
                 <textarea name="<?php echo $formSlug ?>[:index][body]" placeholder="Body"></textarea>
             </li>
         </ul>
-        <ul class="blurb-control">
-            <li><a href="#" class="blurb-moveup">Move up</a></li>
-            <li><a href="#" class="blurb-movedown">Move down</a></li>
-            <li><a href="#" class="blurb-remove">Delete</a></li>
-            <li><a href="#" class="blurb-add">Add</a></li>
-        </ul>
+        <div class="buttons">
+            <button type="button" class="btn small gray">
+                <span class="icon-arrow-up"></span>
+            </button>
+            <button type="button" class="btn small gray">
+                <span class="icon-arrow-down"></span>
+            </button>
+            <button type="button" class="btn small gray blurb-remove">
+                <span class="icon-remove"></span>
+            </button>
+            <button type="button" class="btn small gray blurb-add">
+                <span class="icon-plus"></span>
+            </button>
+        </div>
     </li>
 </script>

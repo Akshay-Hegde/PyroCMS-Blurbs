@@ -5,12 +5,13 @@
         blurbsFieldType: function() {
 
             var container = this;
+            var inputFindSelector = '[name^=' + container.attr('id') + ']';
 
             function addItem() {
                 var blurb = $(this).parents('.blurb');
                 var index = parseInt(blurb.data('index')) + 1;
                 increaseNextIndexes(blurb);
-                container.append($('#blurb-template').html().replace(/:index/g, index));
+                blurb.after($('#blurb-template').html().replace(/:index/g, index));
                 return false;
             }
 
@@ -21,17 +22,29 @@
                 return false;
             }
 
-            function decreaseNextIndexes(blurb) {
-                blurb.nextUntil().each(function() {
-                    var sibling = $(this);
-                    sibling.data('index', parseInt(sibling.data('index')) - 1);
+            function increaseNextIndexes(blurb) {
+                var index = blurb.data('index') + 2;
+                blurb.nextAll().each(function() {
+                    updateIndex($(this), index++);
                 });
             }
 
-            function increaseNextIndexes(blurb) {
-                blurb.nextUntil().each(function() {
-                    var sibling = $(this);
-                    sibling.data('index', parseInt(sibling.data('index')) + 1);
+            function decreaseNextIndexes(blurb) {
+                var index = blurb.data('index') + 1;
+                blurb.nextAll().each(function() {
+                    updateIndex($(this), index++);
+                });
+            }
+
+            function updateIndex(blurb, index) {
+                //blurb.data('index', index);
+                // TODO: work out why only native works!
+                blurb[0].setAttribute('data-index', index);
+                blurb.find(inputFindSelector).each(function() {
+                    var field = $(this);
+                    field.attr('name', field.attr('name').replace(
+                        /\[[0-9]+\]\[(title|link|body)\]/g, '[' + index + '][$1]'
+                    ));
                 });
             }
 
