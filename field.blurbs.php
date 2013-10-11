@@ -22,33 +22,19 @@ class Field_blurbs
 
     public function event()
     {
-        $ci = get_instance();
-
-        $ci->type->add_js('blurbs', 'entry.js');
+        $this->CI->type->add_js('blurbs', 'entry.js');
     }
 
     public function form_output($data)
     {
-        return (!$data['value'])
-            ? $this->getCleanForm($data['form_slug'])
-            : $this->getUsedForm($data);
-    }
+        $viewData = array(
+            'formSlug' => $data['form_slug'],
+            'items' => (!empty($data['value']))
+                ? unserialize($data['value'])
+                : null;
+        );
 
-    protected function getCleanForm($formSlug)
-    {
-        ob_start();
-        require __DIR__ . '/views/form.php';
-        return ob_get_clean();
-    }
-
-    protected function getUsedForm(array &$data)
-    {
-        $formSlug = $data['form_slug'];
-        $items = unserialize($data['value']);
-
-        ob_start();
-        require __DIR__ . '/views/form.php';
-        return ob_get_clean();
+        $this->CI->type->load_view($this->field_type_slug, 'form', $viewData, true);
     }
 
     public function pre_save($input)

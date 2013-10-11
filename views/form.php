@@ -1,5 +1,5 @@
 <ul class="blurbs" id="<?php echo $formSlug ?>">
-    <?php if (isset($items)): ?>
+    <?php if ($items): ?>
         <?php foreach ($items as $i => &$item): ?>
             <li class="blurb" data-index="<?php echo $i ?>">
                 <ul class="blurb-inputs">
