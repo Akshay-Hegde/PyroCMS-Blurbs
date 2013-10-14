@@ -23,6 +23,7 @@ class Field_blurbs
     public function event()
     {
         $this->CI->type->add_js('blurbs', 'entry.js');
+        $this->CI->type->add_css('blurbs', 'entry.css');
     }
 
     public function form_output($data)
@@ -31,10 +32,10 @@ class Field_blurbs
             'formSlug' => $data['form_slug'],
             'items' => (!empty($data['value']))
                 ? unserialize($data['value'])
-                : null;
+                : null
         );
 
-        $this->CI->type->load_view($this->field_type_slug, 'form', $viewData, true);
+        return $this->CI->type->load_view($this->field_type_slug, 'form', $viewData, true);
     }
 
     public function pre_save($input)

@@ -1,0 +1,26 @@
+.blurbs {
+    margin-top: 12px !important;
+}
+
+.blurb {
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+}
+
+.blurb-buttons {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.blurb-more {
+    display: none;
+}
+
+.blurb input {
+    width: 400px;
+}
+
+.blurb .btn {
+    margin-top: 0;
+}

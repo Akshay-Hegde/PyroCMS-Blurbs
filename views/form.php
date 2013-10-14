@@ -5,26 +5,27 @@
                 <ul class="blurb-inputs">
                     <li class="input">
                         <input type="text" name="<?php echo $formSlug ?>[<?php echo $i ?>][title]" placeholder="Title" value="<?php if (isset($item['title'])) echo htmlspecialchars($item['title']) ?>">
+                        <a href="#" class="blurb-togglemore">More</a>
                     </li>
-                    <li class="input">
+                    <li class="input blurb-more">
                         <input type="text" name="<?php echo $formSlug ?>[<?php echo $i ?>][link]" placeholder="Link" value="<?php if (isset($item['link'])) echo htmlspecialchars($item['link']) ?>">
                     </li>
-                    <li class="input">
+                    <li class="input blurb-more">
                         <textarea name="<?php echo $formSlug ?>[<?php echo $i ?>][body]" placeholder="Body"><?php if (isset($item['body'])) echo htmlspecialchars($item['body']) ?></textarea>
                     </li>
                 </ul>
-                <div class="buttons">
+                <div class="buttons blurb-buttons blurb-more">
                     <button type="button" class="btn small gray blurb-moveup">
-                        <span class="icon-arrow-up"></span>
+                        <span class="icon-arrow-up"></span> Move up
                     </button>
                     <button type="button" class="btn small gray blurb-movedown">
-                        <span class="icon-arrow-down"></span>
+                        <span class="icon-arrow-down"></span> Move down
                     </button>
                     <button type="button" class="btn small gray blurb-remove">
-                        <span class="icon-remove"></span>
+                        <span class="icon-remove"></span> Remove
                     </button>
                     <button type="button" class="btn small gray blurb-add">
-                        <span class="icon-plus"></span>
+                        <span class="icon-plus"></span> Insert after
                     </button>
                 </div>
             </li>
@@ -34,15 +35,16 @@
             <ul class="blurb-inputs">
                 <li class="input">
                     <input type="text" name="<?php echo $formSlug ?>[0][title]" placeholder="Title">
+                    <a href="#" class="blurb-togglemore">More</a>
                 </li>
-                <li class="input">
+                <li class="input blurb-more">
                     <input type="text" name="<?php echo $formSlug ?>[0][link]" placeholder="Link">
                 </li>
-                <li class="input">
+                <li class="input blurb-more">
                     <textarea name="<?php echo $formSlug ?>[0][body]" placeholder="Body"></textarea>
                 </li>
             </ul>
-            <div class="buttons">
+            <div class="buttons blurb-buttons blurb-more">
                 <button type="button" class="btn small gray blurb-moveup">
                     <span class="icon-arrow-up"></span>
                 </button>
@@ -65,15 +67,16 @@
         <ul class="blurb-inputs">
             <li class="input">
                 <input type="text" name="<?php echo $formSlug ?>[0][title]" placeholder="Title">
+                <a href="#" class="blurb-togglemore">More</a>
             </li>
-            <li class="input">
+            <li class="input blurb-more">
                 <input type="text" name="<?php echo $formSlug ?>[0][link]" placeholder="Link">
             </li>
-            <li class="input">
+            <li class="input blurb-more">
                 <textarea name="<?php echo $formSlug ?>[0][body]" placeholder="Body"></textarea>
             </li>
         </ul>
-        <div class="buttons">
+        <div class="buttons blurb-buttons blurb-more">
             <button type="button" class="btn small gray blurb-moveup">
                 <span class="icon-arrow-up"></span>
             </button>

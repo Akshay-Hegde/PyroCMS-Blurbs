@@ -52,11 +52,28 @@
                 });
             }
 
+            function toggleMore() {
+                var link = $(this);
+                link.text(link.text() == 'More' ? 'Less' : 'More');
+                var blurb = link.parents('.blurb');
+                blurb.find('.blurb-more').toggle();
+                blurb.siblings().each(function() {
+                    hideMore($(this));
+                });
+                return false;
+            }
+
+            function hideMore(blurb) {
+                blurb.find('.blurb-more').hide();
+                blurb.find('.blurb-togglemore').text('More');
+            }
+
             return this.each(function() {
                 blurbs.on('click', '.blurb-add', addItem);
                 blurbs.on('click', '.blurb-remove', removeItem);
                 blurbs.on('click', '.blurb-moveup', moveItemUp);
                 blurbs.on('click', '.blurb-movedown', moveItemDown);
+                blurbs.on('click', '.blurb-togglemore', toggleMore);
             });
         }
 
